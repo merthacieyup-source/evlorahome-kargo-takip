@@ -1,0 +1,1 @@
+Vercel için hazırdır. KARGONOMI_TOKEN çevresel değişkeni Üretim ortamında kayıtlı olmalıdır. Yeni dağıtımdan sonra gerçek bir takip numarasıyla test edin.
