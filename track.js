@@ -2,8 +2,7 @@ export default async function handler(req,res){
 res.setHeader("Cache-Control","no-store");const tracking=String(req.query.tracking||"").trim();if(!tracking)return res.status(400).json({ok:false,error:"Takip numarası gerekli."});
 const token=process.env.KARGONOMI_TOKEN;if(!token)return res.status(500).json({ok:false,error:"Kargonomi bağlantısı yapılandırılmamış."});
 const norm=v=>String(v??"").trim().toLowerCase().replace(/\s+/g,"");const wanted=norm(tracking);
-const tk=["tracking_number","trackingNumber","tracking_no","trackingNo","cargo_tracking_number","cargoTrackingNumber","shipment_tracking_number","shipmentTrackingNumber","barcode","cargo_barcode","cargoBarcode","tracking_code","trackingCode"];
-const sk=["status","status_name","statusName","shipment_status","shipmentStatus","cargo_status","cargoStatus","state"];
+const tk=["shipping_webservice_tracking_code","tracking_number","trackingNumber","tracking_no","trackingNo","cargo_tracking_number","cargoTrackingNumber","shipment_tracking_number","shipmentTrackingNumber","barcode","cargo_barcode","cargoBarcode","tracking_code","trackingCode"];
 const ck=["cargo_company","cargoCompany","carrier","carrier_name","carrierName","cargo_firm","cargoFirm"];
 const uk=["updated_at","updatedAt","last_update","lastUpdate","status_updated_at","statusUpdatedAt"];
 const pick=(o,ks)=>{for(const k of ks)if(o&&o[k]!=null&&typeof o[k]!=="object")return o[k];return""};
